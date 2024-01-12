@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tranquilapp/screens/sidebar.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -39,6 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
+      drawer: Sidebar(),
       body: SingleChildScrollView(
         child: Column(
           children: [

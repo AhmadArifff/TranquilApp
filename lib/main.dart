@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tranquilapp/screens/login_screen.dart';
-import './screens/sidebar.dart';
+import 'package:tranquilapp/screens/sidebar.dart';
+// import 'package:tranquilapp/screens/test_screen.dart';
 
 void main() {
   runApp(
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Your App Title',
       home: LoginScreen(),
+      // home: DashboardScreen(),
     );
   }
 }

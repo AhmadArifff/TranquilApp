@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:tranquilapp/screens/sidebar.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         title: Text('Dashboard'),
       ),
+      drawer: Sidebar(),
       body: Column(
         children: [
           Expanded(
@@ -57,14 +59,13 @@ class DashboardContent extends StatefulWidget {
 class _DashboardContentState extends State<DashboardContent> {
   int _currentCarouselIndex = 0;
   late List<String> _answers;
-  late List<TextEditingController> _textControllers;
   final int _totalQuestions = 2;
+  bool _isYesSelected = true;
 
   @override
   void initState() {
     super.initState();
     _answers = List.generate(_totalQuestions, (index) => '');
-    _textControllers = List.generate(_totalQuestions, (index) => TextEditingController());
   }
 
   @override
@@ -118,13 +119,22 @@ class _DashboardContentState extends State<DashboardContent> {
                   children: [
                     Text('Pertanyaan ${i + 1}', style: TextStyle(color: Colors.white)),
                     SizedBox(height: 10),
-                    Text('Jawaban: ${_answers[i]}', style: TextStyle(color: Colors.white)),
-                    SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        _toggleAnswerField(i);
-                      },
-                      child: Text('Toggle Answer Field'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            _selectAnswer(true);
+                          },
+                          child: Text('Yes'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            _selectAnswer(false);
+                          },
+                          child: Text('No'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -142,6 +152,7 @@ class _DashboardContentState extends State<DashboardContent> {
             onPageChanged: (index, reason) {
               setState(() {
                 _currentCarouselIndex = index;
+                _isYesSelected = true; // Reset selection when carousel changes
               });
             },
           ),
@@ -188,18 +199,28 @@ class _DashboardContentState extends State<DashboardContent> {
     int nextIndex = (_currentCarouselIndex + 1) % _totalQuestions;
     setState(() {
       _currentCarouselIndex = nextIndex;
+      _isYesSelected = true; // Reset selection when carousel changes
     });
-    _textControllers[_currentCarouselIndex].text = _answers[_currentCarouselIndex];
   }
 
   void _previousCarouselItem() {
     int previousIndex = (_currentCarouselIndex - 1 + _totalQuestions) % _totalQuestions;
     setState(() {
       _currentCarouselIndex = previousIndex;
+      _isYesSelected = true; // Reset selection when carousel changes
     });
-    _textControllers[_currentCarouselIndex].text = _answers[_currentCarouselIndex];
   }
 
+  void _selectAnswer(bool isYes) {
+    setState(() {
+      _isYesSelected = isYes;
+      if (isYes) {
+        _answers[_currentCarouselIndex] = 'Yes';
+      } else {
+        _answers[_currentCarouselIndex] = 'No';
+      }
+    });
+  }
 }
 
 class MenuContent extends StatelessWidget {

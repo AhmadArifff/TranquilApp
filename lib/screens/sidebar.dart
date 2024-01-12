@@ -4,6 +4,7 @@ import 'package:tranquilapp/screens/dashboard_screen.dart';
 import 'package:tranquilapp/screens/profile_screen.dart'; 
 import 'package:tranquilapp/screens/login_screen.dart';
 import 'package:tranquilapp/screens/solusi_to-do-list.dart';
+import 'package:tranquilapp/screens/keluhan_mental_screen.dart';
 
 class SidebarProvider with ChangeNotifier {
   int _selectedIndex = 0;
@@ -34,7 +35,7 @@ class Sidebar extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30.0,
-                  backgroundImage: AssetImage('assets/profile_picture.jpg'), 
+                  backgroundImage: AssetImage('assets/profile_picture.jpg'),
                 ),
                 SizedBox(height: 10.0),
                 Text(
@@ -48,52 +49,52 @@ class Sidebar extends StatelessWidget {
               ],
             ),
           ),
-          ListTile(
-            title: Text('Dashboard'),
-            onTap: () {
-              sidebarProvider.selectItem(0);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DashboardScreen()),
-              );
-            },
-            selected: sidebarProvider.selectedIndex == 0,
-          ),
-          ListTile(
-            title: Text('Profile'),
-            onTap: () {
-              sidebarProvider.selectItem(1);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfileScreen()),
-              );
-            },
-            selected: sidebarProvider.selectedIndex == 1,
-          ),
-          ListTile(
-            title: Text('To-Do List'),
-            onTap: () {
-              sidebarProvider.selectItem(2);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TodoListScreen()),
-              );
-            },
-            selected: sidebarProvider.selectedIndex == 2,
-          ),
-          ListTile(
-            title: Text('Logout'),
-            onTap: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => LoginScreen()),
-                (route) => false,
-              );
-            },
-            selected: sidebarProvider.selectedIndex == 3,
-          ),
+          for (int index = 0; index < 5; index++)
+            ListTile(
+              title: Text(getSidebarItemTitle(index)),
+              onTap: () {
+                sidebarProvider.selectItem(index);
+                Navigator.pushReplacement(context, getRouteForIndex(index));
+              },
+              selected: sidebarProvider.selectedIndex == index,
+            ),
         ],
       ),
     );
   }
+
+  String getSidebarItemTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Dashboard';
+      case 1:
+        return 'Profile';
+      case 2:
+        return 'To-Do List';
+      case 3:
+        return 'Keluhan Mental';
+      case 4:
+        return 'Logout';
+      default:
+        return '';
+    }
+  }
+
+  MaterialPageRoute getRouteForIndex(int index) {
+    switch (index) {
+      case 0:
+        return MaterialPageRoute(builder: (context) => DashboardScreen());
+      case 1:
+        return MaterialPageRoute(builder: (context) => ProfileScreen());
+      case 2:
+        return MaterialPageRoute(builder: (context) => TodoListScreen());
+      case 3:
+        return MaterialPageRoute(builder: (context) => KeluhanMentalScreen());
+      case 4:
+        return MaterialPageRoute(builder: (context) => LoginScreen());
+      default:
+        return MaterialPageRoute(builder: (context) => DashboardScreen());
+    }
+  }
 }
+
