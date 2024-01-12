@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './dashboard.dart'; 
-import './forget_password_screen.dart'; // Import the new screen
-import 'sign_up_screen.dart'; // Import the new screen
+import 'package:tranquilapp/screens/dashboard_screen.dart'; 
+import 'package:tranquilapp/screens/forget_password_screen.dart'; // Import the new screen
+import 'package:tranquilapp/screens/sign_up_screen.dart'; // Import the new screen
 
 
 class LoginScreen extends StatefulWidget {
