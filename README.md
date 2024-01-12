@@ -1,4 +1,4 @@
-# tranquilapp
+# Tranquil App
 
 A new Flutter project.
 
