@@ -2,6 +2,13 @@
 
 **Tranquil App** adalah aplikasi mobile yang dirancang untuk membantu mengurangi stres dan masalah kesehatan mental. Aplikasi ini menawarkan berbagai fitur yang dirancang untuk membantu pengguna mengelola stres, kecemasan, dan depresi.
 
+## Deskripsi Tim
+**Ahmad Arif : Hacker**
+**M Ilham Ramdani : Hacker**
+**Azimah Arifanida : Hustler**
+**Raihan Nur Hanif : Hipster**
+
+
 ## Fitur Utama
 
 - **Isi Formulir Keluhan Kesehatan Mental:** Pengguna dapat mengisi formulir untuk melaporkan keluhan mereka terkait kesehatan mental.
