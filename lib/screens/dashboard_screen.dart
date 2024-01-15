@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:tranquilapp/screens/sidebar.dart';
+import 'package:TranquilApp/screens/sidebar.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override

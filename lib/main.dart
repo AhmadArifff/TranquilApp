@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tranquilapp/screens/login_screen.dart';
-import 'package:tranquilapp/screens/sidebar.dart';
-// import 'package:tranquilapp/screens/test_screen.dart';
+import 'package:TranquilApp/screens/login_screen.dart';
+import 'package:TranquilApp/screens/sidebar.dart';
+// import 'package:TranquilApp/screens/test_screen.dart';
 
 void main() {
   runApp(

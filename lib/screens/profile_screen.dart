@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tranquilapp/screens/sidebar.dart';
+import 'package:TranquilApp/screens/sidebar.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

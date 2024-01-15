@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tranquilapp/screens/dashboard_screen.dart'; 
-import 'package:tranquilapp/screens/profile_screen.dart'; 
-import 'package:tranquilapp/screens/login_screen.dart';
-import 'package:tranquilapp/screens/solusi_to-do-list.dart';
-import 'package:tranquilapp/screens/keluhan_mental_screen.dart';
+import 'package:TranquilApp/screens/dashboard_screen.dart'; 
+import 'package:TranquilApp/screens/profile_screen.dart'; 
+import 'package:TranquilApp/screens/login_screen.dart';
+import 'package:TranquilApp/screens/solusi_to-do-list.dart';
+import 'package:TranquilApp/screens/keluhan_mental_screen.dart';
 
 class SidebarProvider with ChangeNotifier {
   int _selectedIndex = 0;

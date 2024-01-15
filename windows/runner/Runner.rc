@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "tranquilapp" "\0"
+            VALUE "FileDescription", "tranquilapp_stable" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "tranquilapp" "\0"
+            VALUE "InternalName", "tranquilapp_stable" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "tranquilapp.exe" "\0"
-            VALUE "ProductName", "tranquilapp" "\0"
+            VALUE "OriginalFilename", "tranquilapp_stable.exe" "\0"
+            VALUE "ProductName", "tranquilapp_stable" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
