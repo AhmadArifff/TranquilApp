@@ -1,4 +1,4 @@
-# tranquilapp_stable
+# tranquilapp
 
 A new Flutter project.
 
