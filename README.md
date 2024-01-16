@@ -1,11 +1,5 @@
 # Tranquil App
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Tranquil App adalah aplikasi mobile yang dirancang untuk membantu mengurangi stres dan masalah kesehatan mental. Aplikasi ini menawarkan berbagai fitur yang dirancang untuk membantu pengguna mengelola stres, kecemasan, dan depresi.
-=======
-**Tranquil App** adalah aplikasi mobile yang dirancang untuk membantu mengurangi stres dan masalah kesehatan mental. Aplikasi ini menawarkan berbagai fitur yang dirancang untuk membantu pengguna mengelola stres, kecemasan, dan depresi.
-=======
 **Tranquil App** adalah aplikasi mobile yang dirancang untuk membantu mengurangi stres dan masalah kesehatan mental. Aplikasi ini menawarkan berbagai fitur yang dirancang untuk membantu pengguna mengelola stres, kecemasan, dan depresi.
 
 ## Fitur Utama
