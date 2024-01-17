@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:TranquilApp/screens/sidebar.dart';
+import 'package:TranquilApp/screens/sidebar_screen.dart';
 
 enum TaskStatus { Pending, InProgress, Success }
 
@@ -26,7 +26,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
       appBar: AppBar(
         title: Text('To-Do List'),
       ),
-      drawer: Sidebar(), // Assuming you have a Sidebar implementation
+      drawer: SidebarScreen(), // Assuming you have a SidebarScreen implementation
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

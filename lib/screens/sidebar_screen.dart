@@ -16,8 +16,7 @@ class SidebarProvider with ChangeNotifier {
     notifyListeners();
   }
 }
-
-class Sidebar extends StatelessWidget {
+class SidebarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var sidebarProvider = Provider.of<SidebarProvider>(context);

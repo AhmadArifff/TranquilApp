@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:TranquilApp/screens/sidebar.dart';
+import 'package:TranquilApp/screens/sidebar_screen.dart';
+import 'package:TranquilApp/screens/bottom_navigator.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -21,30 +22,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         title: Text('Dashboard'),
       ),
-      drawer: Sidebar(),
+      // drawer: SidebarScreen(),
       body: Column(
         children: [
           Expanded(
             child: _widgetOptions.elementAt(_selectedIndex),
           ),
-          BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Dashboard',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.menu),
-                label: 'Menu',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            onTap: (index) {
+          MenuBottomNavigator(
+            selectedIndex: _selectedIndex,
+            onTabTapped: (index) {
               setState(() {
                 _selectedIndex = index;
               });
             },
           ),
+          // BottomNavigationBar(
+          //   items: const <BottomNavigationBarItem>[
+          //     BottomNavigationBarItem(
+          //       icon: Icon(Icons.home),
+          //       label: 'Dashboard',
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Icon(Icons.home),
+          //       label: 'Consultation',
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Icon(Icons.menu),
+          //       label: 'Menu',
+          //     ),
+          //   ],
+          //   currentIndex: _selectedIndex,
+          //   onTap: (index) {
+          //     setState(() {
+          //       _selectedIndex = index;
+          //     });
+          //   },
+          // ),
         ],
       ),
     );

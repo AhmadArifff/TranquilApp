@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:TranquilApp/screens/sidebar.dart';
+import 'package:TranquilApp/screens/sidebar_screen.dart';
 
 class KeluhanMentalScreen extends StatefulWidget {
   @override
@@ -34,7 +34,7 @@ class _KeluhanMentalScreenState extends State<KeluhanMentalScreen> {
       appBar: AppBar(
         title: Text('Mental Health Form'),
       ),
-      drawer: Sidebar(),
+      drawer: SidebarScreen(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
