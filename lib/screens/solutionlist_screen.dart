@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:TranquilApp/screens/chat_screen.dart';
 import 'package:TranquilApp/screens/chatlist_screen.dart';
 import 'package:intl/intl.dart';
-import 'package:TranquilApp/screens/bottom_navigator.dart';
-import 'package:TranquilApp/screens/sidebar_screen.dart';
-import 'package:TranquilApp/screens/dashboard_screen.dart';
 
-class ConsultationScreen extends StatelessWidget {
+
+class SolutionListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +12,7 @@ class ConsultationScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context); // Tambahkan logika untuk kembali
           },
         ),
         backgroundColor: const Color(0xFFC6F5EB),
@@ -33,12 +31,11 @@ class ConsultationScreen extends StatelessWidget {
           ),
         ],
       ),
-      // drawer: SidebarScreen(),
       backgroundColor: const Color(0xFFC6F5EB),
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(10.0, 90.0, 10.0, 10.0),
+            padding: const EdgeInsets.fromLTRB(10.0, 90.0, 10.0, 10.0), // Sesuaikan nilai padding sesuai kebutuhan
             child: Row(
               children: [
                 Text(
@@ -118,23 +115,6 @@ class ConsultationScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: MenuBottomNavigator(
-        selectedIndex: 1, // Set the default tab to "Consultation"
-        onTabTapped: (index) {
-          // Handle tab tap if needed
-          if (index == 0) {
-            // Handle the "Home" tab tap
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashboardScreen()));
-          } else if (index == 1) {
-            // Handle the "Consultation" tab tap
-            // You are already on the ConsultationScreen, no need to navigate again
-          } else if (index == 2) {
-            // Handle the "Menu" tab tap
-            // Ganti dengan navigasi ke SidebarScreen jika ada
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SidebarScreen()));
-          }
-        },
-      ),
     );
   }
 }
@@ -193,7 +173,7 @@ class ChatContactCard extends StatelessWidget {
                       Align(
                         alignment: Alignment.center,
                         child: FractionalTranslation(
-                          translation: Offset(0.0, -0.5),
+                          translation: Offset(0.0, -0.5), // Sesuaikan nilai offset sesuai kebutuhan
                           child: IconButton(
                             icon: Icon(
                               Icons.more_vert,
@@ -224,7 +204,6 @@ class ChatContactCard extends StatelessWidget {
       ),
     );
   }
-
   DateTime? _selectedDate;
 
   void _showSchedulingPopup(BuildContext context, String name, String image) {
@@ -236,13 +215,17 @@ class ChatContactCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 20),
+              // Menampilkan foto, nama, dan status
               Row(
                 children: [
+                  // Menampilkan foto di sudut kiri
                   CircleAvatar(
                     radius: 25,
                     backgroundImage: AssetImage(image),
                   ),
-                  SizedBox(width: 16),
+                  SizedBox(width: 16), // Jarak antara foto dan teks
+
+                  // Menampilkan nama dan status pada baris yang sama
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,7 +237,7 @@ class ChatContactCard extends StatelessWidget {
                             fontSize: 16,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 4), // Jarak antara nama dan status
                         Row(
                           children: [
                             Container(
@@ -267,14 +250,14 @@ class ChatContactCard extends StatelessWidget {
                                 shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(width: 4),
+                            SizedBox(width: 4), // Jarak antara status dan ikon kalender
                             Icon(
                               Icons.calendar_today,
                               color: _selectedDate != null
                                   ? Colors.green
                                   : Colors.red,
                             ),
-                            SizedBox(width: 4),
+                            SizedBox(width: 4), // Jarak antara ikon kalender dan teks status
                             Text(
                               _selectedDate != null
                                   ? 'Scheduling'
@@ -308,17 +291,20 @@ class ChatContactCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
+              // Tombol OK dan Cancel
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
                     onPressed: () {
+                      // Logika OK di sini
                       Navigator.pop(context);
                     },
                     child: Text('OK'),
                   ),
                   ElevatedButton(
                     onPressed: () {
+                      // Logika Cancel di sini
                       Navigator.pop(context);
                     },
                     child: Text('Cancel'),
@@ -327,6 +313,7 @@ class ChatContactCard extends StatelessWidget {
               ),
             ],
           ),
+          // Tambahkan tombol close (x) di sudut kanan atas
           actions: [
             IconButton(
               icon: Icon(Icons.close),
@@ -340,6 +327,9 @@ class ChatContactCard extends StatelessWidget {
     );
   }
 
+
+
+
   Future<void> _selectDate(BuildContext context) async {
     DateTime selectedDate = DateTime.now();
     DateTime? picked = await showDatePicker(
@@ -350,6 +340,7 @@ class ChatContactCard extends StatelessWidget {
     );
     if (picked != null && picked != _selectedDate) {
       print('Selected date: ${picked.toString()}');
+      // Setel _selectedDate dan rebuild widget
       _selectedDate = picked;
       Navigator.pop(context);
       _showSchedulingPopup(context, name, image);

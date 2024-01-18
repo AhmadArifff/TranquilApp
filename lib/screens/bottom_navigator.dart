@@ -33,12 +33,24 @@ class MenuBottomNavigator extends StatelessWidget {
       onTap: (index) {
         onTabTapped(index);
         if (index == 0) {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashboardScreen()));
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            '/dashboard', // Assuming '/dashboard' is the route for DashboardScreen
+            (route) => false,
+          );
         } else if (index == 1) {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ConsultationScreen()));
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            '/consultation', // Assuming '/consultation' is the route for ConsultationScreen
+            (route) => false,
+          );
         } else if (index == 2) {
           // Ganti dengan navigasi ke SidebarScreen jika ada
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SidebarScreen()));
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            '/sidebar', // Assuming '/sidebar' is the route for SidebarScreen
+            (route) => false,
+          );
         }
       },
     );

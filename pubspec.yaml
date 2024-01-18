@@ -33,10 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.1.1
   carousel_slider: ^4.2.1
-<<<<<<< HEAD
   intl: ^0.17.0
-=======
->>>>>>> 8b62e9b3c8d47e9e73ffa0e123a2beea3c66702b
   get: ^4.6.6
   hexcolor: ^3.0.1
 
@@ -65,14 +62,11 @@ flutter:
     - lib/assets/logo_white.png
     - lib/assets/logo_blue.png
     - lib/assets/Avatar/annetteblack.png
-<<<<<<< HEAD
     - lib/assets/Avatar/BessieCooper.png
     - lib/assets/Avatar/CameronWilliamson.png
     - lib/assets/Avatar/FloydMiles.png
     - lib/assets/Avatar/JacobJones.png
     - lib/assets/Avatar/KristinWatson.png
-=======
->>>>>>> 8b62e9b3c8d47e9e73ffa0e123a2beea3c66702b
     - lib/assets/google.png
 
   # To add assets to your application, add an assets section, like this:

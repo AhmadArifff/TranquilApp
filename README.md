@@ -31,7 +31,6 @@
 - **carousel_slider:** Untuk menampilkan konten dalam bentuk carousel.
 - **cupertino_icons:** Untuk ikon bergaya iOS.
 - **material_design_icons_flutter:** Untuk ikon Material Design.
->>>>>>> 6dead69bb55a6e9725c44f827cc1954243e5c5fd
 
 ## CodexWell TIM
 **Ahmad Arif : Hacker**
@@ -70,7 +69,6 @@
 - **carousel_slider:** Untuk menampilkan konten dalam bentuk carousel.
 - **cupertino_icons:** Untuk ikon bergaya iOS.
 - **material_design_icons_flutter:** Untuk ikon Material Design.
->>>>>>> 724bf24d3d5c9e5e7a523f560420748627884e9d
 
 ## Fitur Utama
 
