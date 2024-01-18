@@ -1,32 +1,22 @@
+import 'package:TranquilApp/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:TranquilApp/screens/login_screen.dart';
-import 'package:TranquilApp/screens/sidebar_screen.dart';
-import 'package:TranquilApp/screens/chat_screen.dart';
-import 'package:TranquilApp/screens/chatlist_screen.dart';
-import 'package:TranquilApp/screens/consultation_screen.dart';
+import 'package:get/get.dart';
+
 // import 'package:TranquilApp/screens/test_screen.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => SidebarProvider()),
-        // Add more providers if needed
-      ],
-      child: MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Your App Title',
-      home: LoginScreen(),
-      // home: ChatListScreen(),
+      theme: ThemeData(useMaterial3: true),
+      home: const SplashScreen(),
     );
   }
 }
