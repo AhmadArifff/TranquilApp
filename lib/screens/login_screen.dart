@@ -1,10 +1,12 @@
+import 'package:TranquilApp/utils/global.colors.dart';
 import 'package:flutter/material.dart';
-import 'package:TranquilApp/screens/dashboard_screen.dart'; 
+import 'package:TranquilApp/screens/dashboard_screen.dart';
 import 'package:TranquilApp/screens/forget_password_screen.dart'; // Import the new screen
 import 'package:TranquilApp/screens/sign_up_screen.dart'; // Import the new screen
 
-
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -15,153 +17,144 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(bottom: 80.0),
-                child: Image.asset(
-                  'lib/assets/logo.png',
-                  height: 100,
-                  width: 100,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'lib/assets/logo_blue.png',
+                  height: 72,
+                  width: 72,
                 ),
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter your username',
-                  prefixIcon: Icon(Icons.person),
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
+                const Text(
+                  'Welcome',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              SizedBox(height: 20.0),
-              TextField(
-                obscureText: _isObscure,
-                decoration: InputDecoration(
-                  hintText: 'Enter your password',
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-                    onPressed: () {
-                      setState(() {
-                        _isObscure = !_isObscure;
-                      });
-                    },
-                  ),
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    );
+                  },
+                  child: const Text(
+                    "Don't have an account? Sign up",
+                    style: TextStyle(color: Colors.blue),
                   ),
                 ),
-              ), 
-              SizedBox(height: 50.0),
-              ElevatedButton(
-                onPressed: () {
-                  // TODO: Add the logic for the login process
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DashboardScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
+                // EMAIL INPUT
+                const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
                   ),
-                  padding: EdgeInsets.all(10.0),
                 ),
-                child: Ink(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0xff374ABE), Color(0xff64B6FF)],
-                      begin: FractionalOffset.topLeft,
-                      end: FractionalOffset.bottomRight,
+                const SizedBox(height: 20.0),
+                // PASSWORD INPUT
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                  ),
+                ),
+                const SizedBox(height: 10.0),
+                // TEXT FORGOT PASSWORD
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgetPasswordScreen()),
+                    );
+                  },
+                  child: const Text(
+                    'Forget Password?',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+                // BUTTON LOGIN
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DashboardScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(0), // Adjust padding as needed
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                    borderRadius: BorderRadius.circular(30.0),
+                    elevation: 10, // Adjust elevation as needed
+                    backgroundColor: GlobalColors.mainColor, // Button color
+                    foregroundColor: Colors.white, // Text color
+                    shadowColor: Colors.black.withOpacity(0.1),
                   ),
                   child: Container(
-                    constraints: BoxConstraints(maxWidth: 360.0, minHeight: 50.0),
                     alignment: Alignment.center,
-                    child: Text(
-                      'Login',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                    height: 55,
+                    child: const Text(
+                      'Sign in',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 16.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ForgetPasswordScreen()),
-                      );
-                    },
-                    child: Text(
-                      'Forget Password?',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                const SizedBox(height: 16.0),
+                Text(
+                  '- OR -',
+                  style: TextStyle(
+                    color: GlobalColors.textColor,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(width: 10), // Add space between "Forget Password?" and "Sign Up"
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
-                      );
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(color: Colors.green),
-                    ),
+                ),
+                const SizedBox(height: 16.0),
+                Row(children: [
+                  Expanded(
+                    child: Container(
+                        alignment: Alignment.center,
+                        height: 55,
+                        decoration: BoxDecoration(
+                            color: GlobalColors.mainColor,
+                            borderRadius: BorderRadius.circular(6),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(.1),
+                                blurRadius: 10,
+                              )
+                            ]),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'lib/assets/google.png',
+                              height: 30,
+                            ),
+                            const Text(
+                              'Google',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
+                            )
+                          ],
+                        )),
                   ),
-                ],
-              ),
-            ],
+                ])
+              ],
+            ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class PasswordTextField extends StatefulWidget {
-  @override
-  _PasswordTextFieldState createState() => _PasswordTextFieldState();
-}
-
-class _PasswordTextFieldState extends State<PasswordTextField> {
-  bool _isObscure = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: _isObscure,
-      decoration: InputDecoration(
-        hintText: 'Enter your password',
-        prefixIcon: Icon(Icons.lock),
-        suffixIcon: IconButton(
-          icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-          onPressed: () {
-            setState(() {
-              _isObscure = !_isObscure;
-            });
-          },
-        ),
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
         ),
       ),
     );
