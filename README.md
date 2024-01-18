@@ -100,20 +100,7 @@ cupertino_icons: Untuk ikon bergaya iOS.
 material_design_icons_flutter: Untuk ikon Material Design.
 ## Getting Started
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Clone repository ini.
-Buka proyek di Android Studio atau Visual Studio Code.
-Hubungkan proyek dengan Firebase.
-Jalankan aplikasi pada perangkat Android atau emulator.
-=======
-=======
->>>>>>> 6dead69bb55a6e9725c44f827cc1954243e5c5fd
 1. Clone repository ini.
 2. Buka proyek di Android Studio atau Visual Studio Code.
 3. Hubungkan proyek dengan Firebase.
 4. Jalankan aplikasi pada perangkat Android atau emulator.
-<<<<<<< HEAD
->>>>>>> 724bf24d3d5c9e5e7a523f560420748627884e9d
-=======
->>>>>>> 6dead69bb55a6e9725c44f827cc1954243e5c5fd

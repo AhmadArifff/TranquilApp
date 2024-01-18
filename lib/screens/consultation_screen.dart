@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:TranquilApp/screens/chat_screen.dart';
 import 'package:TranquilApp/screens/chatlist_screen.dart';
+import 'package:intl/intl.dart';
+
 
 class ConsultationScreen extends StatelessWidget {
   @override
@@ -13,6 +15,7 @@ class ConsultationScreen extends StatelessWidget {
             Navigator.pop(context); // Tambahkan logika untuk kembali
           },
         ),
+        backgroundColor: const Color(0xFFC6F5EB),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
@@ -89,6 +92,27 @@ class ConsultationScreen extends StatelessWidget {
             isOnline: true,
             unreadMessages: 10,
           ),
+          ChatContactCard(
+            name: 'Anette Black ',
+            image: 'lib/assets/Avatar/JacobJones.png',
+            lastMessage: 'Online',
+            isOnline: true,
+            unreadMessages: 3,
+          ),
+          ChatContactCard(
+            name: 'Cameron Williamson ',
+            image: 'lib/assets/Avatar/BessieCooper.png',
+            lastMessage: 'Offline',
+            isOnline: false,
+            unreadMessages: 5,
+          ),
+          ChatContactCard(
+            name: 'Floyd Miles ',
+            image: 'lib/assets/Avatar/KristinWatson.png',
+            lastMessage: 'Online',
+            isOnline: true,
+            unreadMessages: 10,
+          ),
         ],
       ),
     );
@@ -150,10 +174,15 @@ class ChatContactCard extends StatelessWidget {
                         alignment: Alignment.center,
                         child: FractionalTranslation(
                           translation: Offset(0.0, -0.5), // Sesuaikan nilai offset sesuai kebutuhan
-                          child: Icon(
-                            Icons.more_vert,
-                            color: Colors.black, // Ganti warna ikon sesuai kebutuhan
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: Colors.black,
+                              size: 25,
+                            ),
+                            onPressed: () {
+                              _showSchedulingPopup(context);
+                            },
                           ),
                         ),
                       )
@@ -174,5 +203,82 @@ class ChatContactCard extends StatelessWidget {
         },
       ),
     );
+  }
+  DateTime? _selectedDate;
+
+  void _showSchedulingPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Elemen date untuk menentukan Scheduling
+              ElevatedButton(
+                onPressed: () => _selectDate(context),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.calendar_today),
+                    SizedBox(width: 8),
+                    Text(_selectedDate != null
+                        ? 'Date: ${DateFormat('MM/dd/yyyy').format(_selectedDate!)}'
+                        : 'Select Date'),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              // Tombol OK dan Cancel
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Logika OK di sini
+                      Navigator.pop(context);
+                    },
+                    child: Text('OK'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Logika Cancel di sini
+                      Navigator.pop(context);
+                    },
+                    child: Text('Cancel'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          // Tambahkan tombol close (x) di sudut kanan atas
+          actions: [
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    DateTime selectedDate = DateTime.now();
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate ?? DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != _selectedDate) {
+      print('Selected date: ${picked.toString()}');
+      // Setel _selectedDate dan rebuild widget
+      _selectedDate = picked;
+      Navigator.pop(context);
+      _showSchedulingPopup(context);
+    }
   }
 }

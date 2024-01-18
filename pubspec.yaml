@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.1.1
   carousel_slider: ^4.2.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,11 @@ flutter:
   assets:
     - lib/assets/logo.png
     - lib/assets/Avatar/annetteblack.png
+    - lib/assets/Avatar/BessieCooper.png
+    - lib/assets/Avatar/CameronWilliamson.png
+    - lib/assets/Avatar/FloydMiles.png
+    - lib/assets/Avatar/JacobJones.png
+    - lib/assets/Avatar/KristinWatson.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
